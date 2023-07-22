@@ -15,8 +15,11 @@ from langchain.callbacks import get_openai_callback
 import tiktoken
 from dotenv import load_dotenv, find_dotenv
 _ = load_dotenv(find_dotenv())
-openai.api_key = os.environ['OPENAI_API_KEY']
-pinecone.api_key = os.environ['PINECONE_API_KEY']
+# get openaai and pinecone api key from secrets file
+openai.api_key = st.secrets["OPENAI_API_KEY"]
+#os.environ['OPENAI_API_KEY']
+pinecone.api_key = st.secrets["PINECONE_API_KEY"]
+#os.environ['PINECONE_API_KEY']
 # HF_API_KEY=os.environ['HF_API_KEY']
 # get openai api key from platform.openai.com
 # OPENAI_API_KEY = os.getenv('OPENAI_API_KEY') or 'OPENAI_API_KEY'
@@ -51,7 +54,8 @@ text_splitter = RecursiveCharacterTextSplitter(
 chunks = text_splitter.split_text(CRAdoc[0].page_content)
 
 #CREATE EMBEDDINGS
-OPENAI_API_KEY=os.getenv("OPENAI_API_KEY")
+OPENAI_API_KEY = st.secrets["OPENAI_API_KEY"]
+#os.getenv("OPENAI_API_KEY")
 model_name = 'text-embedding-ada-002' #Embedding model with N-Dim = 1536 ,
 # i.e each vector is represented in 1536 dim space
 
@@ -64,7 +68,8 @@ embed = OpenAIEmbeddings(
 #pip install "pinecone-client[grpc]"
 index_name = 'langchain-retrieval-augmentation'
 
-PINECONE_API_KEY=os.getenv("PINECONE_API_KEY")
+PINECONE_API_KEY = st.secrets["PINECONE_API_KEY"]
+#os.getenv("PINECONE_API_KEY")
 
 pinecone.init(
     api_key=PINECONE_API_KEY,
