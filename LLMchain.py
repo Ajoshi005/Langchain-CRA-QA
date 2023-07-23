@@ -161,6 +161,16 @@ st.sidebar.write(
     "This Langchain based App breaks the CRA tax guide into chunks of text and stores on a Pinecone vector DB(created with OpenAi embedding model)."
     "It accepts user queries and searches for relevant subsections from document to pass into OpenAI LLM QA model to get a response"
 )
+sidebar_text = """
+Tech stack:
+1) LangChain - for LLM App implementation
+2) Open AI - For vector embedding and LLM for creating responses
+3) Pinecone - Creating and storing CRA text data in vector embedding for similarity search(cosine)
+4) Streamlit - For App UI and hosting
+"""
+
+st.sidebar.markdown(sidebar_text)
+
 # Add a link to your resume on LinkedIn in the sidebar
 linkedin_url = "https://www.linkedin.com/in/akashjoshi/"
 st.sidebar.markdown('<a href="'+linkedin_url+'"><img src="https://content.linkedin.com/content/dam/me/business/en-us/amp/brand-site/v2/bg/LI-Bug.svg.original.svg" width=30 height=30></a>', unsafe_allow_html=True)
