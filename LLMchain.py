@@ -152,21 +152,22 @@ if user_input:
         unsafe_allow_html=True,
     )
 
+# Add a heading to the sidebar
+st.sidebar.header("About the App")
+
+# Add a description to the sidebar
+st.sidebar.subtitle(
+    "Canadian Tax assistant app for personal tax filing for the year 2022-23. "
+    "This Langchain based App breaks the CRA tax guide into chunks of text and stores on a Pinecone vector DB(created with OpenAi embedding model)."
+    "It accepts user queries and searches for relevant subsections from document to pass into OpenAI LLM QA model to get a response"
+)
 # Add a link to your resume on LinkedIn in the sidebar
 linkedin_url = "https://www.linkedin.com/in/akashjoshi/"
 st.sidebar.markdown('<a href="'+linkedin_url+'"><img src="https://content.linkedin.com/content/dam/me/business/en-us/amp/brand-site/v2/bg/LI-Bug.svg.original.svg" width=30 height=30></a>', unsafe_allow_html=True)
 # GitHub Logo and Link
 github_url = "https://github.com/Ajoshi005/Langchain-CRA-QA"
 st.sidebar.markdown('<a href="'+github_url+'"><img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" width=30 height=30></a>', unsafe_allow_html=True)
-# Add a heading to the sidebar
-st.sidebar.header("About the App")
 
-# Add a description to the sidebar
-st.sidebar.write(
-    "- Canadian Tax assistant app for personal tax filing for the year 2022-23. "
-    "- This Langchain based App breaks the CRA tax guide into chunks of text and stores on a Pinecone vector DB(created with OpenAi embedding model)."
-    "- It accepts user queries and searches for relevant subsections from document to pass into OpenAI LLM QA model to get a response"
-)
 # Add the disclaimer at the bottom of the page
 st.markdown(
     """
