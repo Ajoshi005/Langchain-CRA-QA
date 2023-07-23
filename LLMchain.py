@@ -156,7 +156,7 @@ if user_input:
 st.sidebar.header("About the App")
 
 # Add a description to the sidebar
-st.sidebar.subtitle(
+st.sidebar.write(
     "Canadian Tax assistant app for personal tax filing for the year 2022-23. "
     "This Langchain based App breaks the CRA tax guide into chunks of text and stores on a Pinecone vector DB(created with OpenAi embedding model)."
     "It accepts user queries and searches for relevant subsections from document to pass into OpenAI LLM QA model to get a response"
