@@ -172,10 +172,10 @@ st.sidebar.markdown(sidebar_text)
 
 # Add a link to your resume on LinkedIn in the sidebar
 linkedin_url = "https://www.linkedin.com/in/akashjoshi/"
-st.sidebar.markdown('<a href="'+linkedin_url+'"><img src="https://content.linkedin.com/content/dam/me/business/en-us/amp/brand-site/v2/bg/LI-Bug.svg.original.svg" width=10 height=10></a>', unsafe_allow_html=True)
+st.sidebar.markdown('<a href="'+linkedin_url+'"><img src="https://content.linkedin.com/content/dam/me/business/en-us/amp/brand-site/v2/bg/LI-Bug.svg.original.svg" width=30 height=30>', unsafe_allow_html=True)
 # GitHub Logo and Link
 github_url = "https://github.com/Ajoshi005/Langchain-CRA-QA"
-st.sidebar.markdown('<a href="'+github_url+'"><img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" width=10 height=10></a>', unsafe_allow_html=True)
+st.sidebar.markdown('<a href="'+github_url+'"><img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" width=30 height=30></a>', unsafe_allow_html=True)
 
 # Add the disclaimer at the bottom of the page
 st.markdown(
