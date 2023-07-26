@@ -15,6 +15,11 @@ from langchain.callbacks import get_openai_callback
 import tiktoken
 from dotenv import load_dotenv, find_dotenv
 _ = load_dotenv(find_dotenv())
+# get HF key from secrets file
+repo_id = "google/flan-t5-xxl"  # See https://huggingface.co/models?pipeline_tag=text-generation&sort=downloads for some other options
+model = HuggingFaceHub(repo_id=repo_id,
+                       model_kwargs={"temperature": 0, "max_length":200},
+                       huggingfacehub_api_token = st.secrets["HF_API_KEY"])
 # get openaai and pinecone api key from secrets file
 openai.api_key = st.secrets["OPENAI_API_KEY"]
 #os.environ['OPENAI_API_KEY']
@@ -93,7 +98,7 @@ llm = ChatOpenAI(
 )
 
 qa = RetrievalQA.from_chain_type(
-    llm=llm,
+    llm=model,#llm for OPenAI model
     chain_type="stuff",
     chain_type_kwargs=chain_type_kwargs,
     retriever=vectorstore.as_retriever()
@@ -102,8 +107,8 @@ qa = RetrievalQA.from_chain_type(
 #INPUT TAKEN FROM APP.PY
 # Define the function predict_tax_query with corrected indentation
 def predict_tax_query(user_input):
-    with get_openai_callback() as cb:
-        response = qa.run(user_input)
+    #with get_openai_callback() as cb:
+    response = qa.run(user_input)
     return response
 
 #----------BUILDING the APP.py----------------------------#
