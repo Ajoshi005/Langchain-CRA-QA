@@ -106,8 +106,8 @@ qa = RetrievalQA.from_chain_type(
 
 #INPUT TAKEN FROM APP.PY
 # Define the function predict_tax_query with corrected indentation
+# with get_openai_callback() as cb:
 def predict_tax_query(user_input):
-    #with get_openai_callback() as cb:
     response = qa.run(user_input)
     return response
 
