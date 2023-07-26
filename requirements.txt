@@ -5,3 +5,4 @@ tqdm==4.65.0
 langchain==0.0.125
 tiktoken==0.4.0
 python-dotenv==1.0.0
+huggingface_hub==0.16.4
