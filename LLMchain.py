@@ -92,9 +92,11 @@ llm = ChatOpenAI(
     temperature=0.0,
     verbose=True
 )
-
-qa = RetrievalQA.from_chain_type(
-    llm=model,#llm for OPenAI model
+#chain type = retrieval with memory = ConversationalRetrievalChain
+#plain retreival no memory = RetrievalQA
+#qa = RetrievalQA.from_chain_type \
+qa =RetrievalQA.from_chain_type(
+    llm=llm,#llm for OPenAI model
     chain_type="stuff",
     chain_type_kwargs=chain_type_kwargs,
     retriever=vectorstore.as_retriever()
